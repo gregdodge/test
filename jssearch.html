@@ -7,61 +7,22 @@
 <title>Dev Stuff</title>  
 
 <script>
-// search.js
-document.addEventListener("DOMContentLoaded", () => {
-  const searchInput = document.getElementById('search-input');
-  const searchForm = document.getElementById('search-form');
-  const resultsContainer = document.getElementById('search-results');
-  let searchIndex = []; // This will hold your site's index data
+// Get the form element
+const searchForm = document.getElementById('site-search-form');
 
-  // 1. Fetch the pre-built search index (search_index.json)
-  fetch('/search_index.json')
-    .then(response => response.json())
-    .then(data => {
-      searchIndex = data;
-      // Optional: Initialize your search library with the fetched data here
-      // e.g., mySearchLibrary.addAll(searchIndex);
-    })
-    .catch(error => {
-      console.error('Error fetching search index:', error);
-    });
-
-  // 2. Handle the search form submission
-  searchForm.addEventListener('submit', (event) => {
-    event.preventDefault(); // Prevent the default form submission and page reload
-    const query = searchInput.value.toLowerCase().trim();
-    if (query.length > 0) {
-      displayResults(query);
+// Function to set the site domain dynamically
+function setSiteSearchDomain() {
+    // Replace 'yourwebsite.com' with your actual domain name
+    // window.location.host gets the current domain
+    const domain = window.location.host; 
+    const hiddenInput = searchForm.querySelector('input[name="sitesearch"]');
+    if (hiddenInput && domain) {
+        hiddenInput.value = domain;
     }
-  });
+}
 
-  // 3. Function to perform the search and display results
-  function displayResults(query) {
-    resultsContainer.innerHTML = ''; // Clear previous results
-
-    // Pseudocode: Replace this with your chosen library's search logic (e.g., MiniSearch.search(query))
-    const results = searchIndex.filter(item => 
-      item.title.toLowerCase().includes(query) || 
-      item.content.toLowerCase().includes(query)
-    ); 
-
-    if (results.length > 0) {
-      const list = document.createElement('ul');
-      results.forEach(result => {
-        const listItem = document.createElement('li');
-        const link = document.createElement('a');
-        link.href = result.url;
-        link.textContent = result.title;
-        listItem.appendChild(link);
-        list.appendChild(listItem);
-      });
-      resultsContainer.appendChild(list);
-    } else {
-      resultsContainer.innerHTML = '<p>No results found.</p>';
-    }
-  }
-});
-
+// Call the function when the page loads
+document.addEventListener('DOMContentLoaded', setSiteSearchDomain);
 </script>
   
 </head>
@@ -72,11 +33,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
   <h1>Javascript - Search</h1>
   
-<form id="search-form">
-  <input type="text" id="search-input" placeholder="Search entire website..." autocomplete="off">
-  <button type="submit">Search</button>
-</form>
-<div id="search-results"></div>
+<form action="www.google.com" method="get" id="site-search-form">
+        <label for="site-search">Search the site:</label>
+        <!-- The 'name="q"' parameter is the standard query parameter for Google search -->
+        <input type="search" id="site-search" name="q" placeholder="Enter keywords..." required>
+        <!-- A hidden input field is used to restrict the search to your website's domain -->
+        <input type="hidden" name="sitesearch" value="yourwebsite.com">
+        <button type="submit">Search</button>
+    </form>
   
 
 </div>
