@@ -5,6 +5,25 @@
 <link rel="shortcut icon" type="image/png" href="https://gregdodge.github.io/dev/gdr-fav.png">
 <head>  
 <title>Dev Stuff</title>  
+
+<script>
+  function siteSearch() {
+  const input = document.getElementById('search-box').value.toLowerCase();
+  const contentBlocks = document.getElementsByClassName('searchable-content');
+
+  for (let i = 0; i < contentBlocks.length; i++) {
+    // Get text from both the heading and paragraph
+    const textContent = contentBlocks[i].innerText.toLowerCase();
+
+    if (textContent.includes(input)) {
+      contentBlocks[i].style.display = ""; // Show matching content
+    } else {
+      contentBlocks[i].style.display = "none"; // Hide non-matching content
+    }
+  }
+}
+</script>
+  
 </head>
 <body style="font-family:verdana;background-color:;">
 
@@ -13,7 +32,18 @@
 
   <h1>Dev stuff</h1>
   
+<search>
+  <input type="text" id="search-box" placeholder="Search content..." onkeyup="siteSearch()">
+</search>
 
+<div class="searchable-content">
+  <h2>JavaScript Basics</h2>
+  <p>Learn how to build search boxes without simple lists.</p>
+</div>
+<div class="searchable-content">
+  <h2>CSS Styling</h2>
+  <p>Customize the look and feel of your search components.</p>
+</div>
 
 </div>
 </div>  
