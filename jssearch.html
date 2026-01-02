@@ -4,27 +4,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="shortcut icon" type="image/png" href="https://gregdodge.github.io/dev/gdr-fav.png">
 <head>  
-<title>Dev Stuff</title>  
-
-<script>
-// Get the form element
-const searchForm = document.getElementById('site-search-form');
-
-// Function to set the site domain dynamically
-function setSiteSearchDomain() {
-    // Replace 'yourwebsite.com' with your actual domain name
-    // window.location.host gets the current domain
-    const domain = window.location.host; 
-    const hiddenInput = searchForm.querySelector('input[name="sitesearch"]');
-    if (hiddenInput && domain) {
-        hiddenInput.value = domain;
-    }
-}
-
-// Call the function when the page loads
-document.addEventListener('DOMContentLoaded', setSiteSearchDomain);
-</script>
-  
+<title>Dev Stuff</title>    
 </head>
 <body style="font-family:verdana;background-color:;">
 
@@ -41,7 +21,14 @@ document.addEventListener('DOMContentLoaded', setSiteSearchDomain);
         <input type="hidden" name="sitesearch" value="https://gregdodge.github.io/tests/">
         <button type="submit">Search</button>
     </form>
-  
+
+<form method="get" action="https://www.mojeek.com/search">
+	<input size="30" name="q" placeholder="Search with Mojeek">  
+	<input type="submit" value="Search"> 
+	<div>
+		<input type="radio" name="site" value="https://gregdodge.github.io"> search this site
+	</div>
+</form>  
 
 </div>
 </div>  
