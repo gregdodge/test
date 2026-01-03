@@ -22,6 +22,7 @@
 	
 	<p>Example 1.</p>
 
+	
 	<style>
 	.text-slider-p {
 	  max-width: 15em;
@@ -62,16 +63,48 @@
 	<p></p>
 	  <hr style="border:none;height: 1px;background-color:grey;"/>
 	<p></p>    	
-		
+
+	
 	<p>Example 2.</p>
+
+	
+	  <div data-box="one" class="box box--1">
+    I'm Active
+  </div>
+  <div data-box="two" class="box box--2">
+    I'm Active
+  </div>
+</div>
+
+<button class="btn">Switch</button>
+  
+    <script id="rendered-js" >
+const switchBtn = document.querySelector(".btn");
+const box1El = document.querySelector(".box--1");
+
+switchBtn.addEventListener("click", function () {
+  const active = document.querySelector('.active');
+  if (active) {
+    const notActive = document.querySelector('.box:not(.active)');
+    notActive.classList.add('active');
+    active.classList.remove('active');
+  } else {
+    box1El.classList.add('active');
+  }
+});
+//# sourceURL=pen.js
+  </script>
+
 
 	<p style="height:15px;"/>  
 
 	<p></p>
 	  <hr style="border:none;height: 1px;background-color:grey;"/>
 	<p></p>    	
+
 	
 	<p>Example 3.</p>
+
 	
 </div>
 </div>  
