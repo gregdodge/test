@@ -5,22 +5,6 @@
 <head>  
 <title>Dev Stuff</title>    
 </head>
-
-<script>
-	const textSlider = document.querySelector('.text-slider');
-const words = textSlider.dataset.words.split(',');
-const log = i=>{
-  if(i<words.length){
-    setTimeout(function(){
-      textSlider.innerHTML = words[i];
-      i++;
-      if(i==words.length)i=0;
-      log(i);
-    },3000);
-  }
-}
-log(0);
-</script>
 	
 <body style="font-family:verdana;background-color:;">
 
@@ -34,14 +18,15 @@ log(0);
 	<p></p>
 	  <hr style="border:none;height: 1px;background-color:grey;"/>
 	<p></p>    
-		
+
+	
 	<p>Example 1.</p>
 
 	<p style="height:15px;"/>  
 
 		
 <style>
-	.text-slider-p {
+.text-slider-p {
   max-width: 15em;
   margin: auto;
   text-align:center;
@@ -52,14 +37,32 @@ log(0);
   transition: all 0.3s;
 }
 </style>
-		
-		<h1 class="text-slider-p">
+
+  <h1 class="text-slider-p">
   Every 
   <span class="text-slider" data-words="data scientist, system admin, mobile developer, game developer,developer">developer</span>
   has a
   <br class="lg:d-none"> tab open to
   <br class="d-none lg:d-block"> Stack Overflow
-</h1>
+  </h1>
+  
+    <script id="rendered-js" >
+const textSlider = document.querySelector('.text-slider');
+const words = textSlider.dataset.words.split(',');
+const log = i => {
+  if (i < words.length) {
+    setTimeout(function () {
+      textSlider.innerHTML = words[i];
+      i++;
+      if (i == words.length) i = 0;
+      log(i);
+    }, 3000);
+  }
+};
+log(0);
+//# sourceURL=pen.js
+  </script>
+		
 		
 	<p></p>
 	  <hr style="border:none;height: 1px;background-color:grey;"/>
