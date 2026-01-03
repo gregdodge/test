@@ -71,7 +71,7 @@
 	  display: flex;
 	  align-items: center;
 	  gap: 5rem;
-	  margin-bottom: 3rem;
+	  margin-bottom: 1rem;
 	}
 	.box {
 	  position:relative;
@@ -85,6 +85,7 @@
 	  display: flex;
 	  place-items: center;
 	  color: hsla(0, 0%, 0%, 1);
+	  text-align: center;
 	}
 	.box:after {
 	  content:"";
@@ -97,6 +98,7 @@
 	  height:100%;
 	  max-height:30rem;
 	  transition:max-height 0.5s;
+	  text-align: center;
 	}
 	.box.active:after{
 	  max-height:0;
@@ -109,10 +111,10 @@
 
 	<div align="center">
 	<div class="container" align="center">
-	  <div data-box="one" class="box box--1" style="text-align:center;">
+	  <div data-box="one" class="box box--1">
 	    Active
 	  </div>
-	  <div data-box="two" class="box box--2" style="text-align:center;">
+	  <div data-box="two" class="box box--2">
 	    Active
 	  </div>
 	</div>
