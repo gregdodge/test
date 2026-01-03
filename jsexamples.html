@@ -5,6 +5,23 @@
 <head>  
 <title>Dev Stuff</title>    
 </head>
+
+<script>
+	const textSlider = document.querySelector('.text-slider');
+const words = textSlider.dataset.words.split(',');
+const log = i=>{
+  if(i<words.length){
+    setTimeout(function(){
+      textSlider.innerHTML = words[i];
+      i++;
+      if(i==words.length)i=0;
+      log(i);
+    },3000);
+  }
+}
+log(0);
+</script>
+	
 <body style="font-family:verdana;background-color:;">
 
 <div style="width:100%">  
@@ -22,21 +39,6 @@
 
 	<p style="height:15px;"/>  
 
-<script>
-	const textSlider = document.querySelector('.text-slider');
-const words = textSlider.dataset.words.split(',');
-const log = i=>{
-  if(i<words.length){
-    setTimeout(function(){
-      textSlider.innerHTML = words[i];
-      i++;
-      if(i==words.length)i=0;
-      log(i);
-    },3000);
-  }
-}
-log(0);
-</script>
 		
 <style>
 	.text-slider-p {
