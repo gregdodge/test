@@ -20,7 +20,7 @@
 	<p></p>    
 
 	
-	<p>Example 1.</p>
+	<p>Example 1 (Slider)</p>
 
 	
 	<style>
@@ -62,7 +62,7 @@
 	<p></p>    	
 
 	
-	<p>Example 2.</p>
+	<p>Example 2 (Switch)</p>
 
 	
 	<style>
@@ -121,15 +121,11 @@
 	</div>
 		
 	
-	<button class="btn">Switch</button>
+	<button class="btn">Switching Players</button>
 	
 	</div>
 
 	<p style="height:15px;"/>  
-
-	<p></p>
-	  <hr style="border:none;height: 1px;background-color:grey;"/>
-	<p></p>    	
 
 	<script>
 		const switchBtn = document.querySelector(".btn");
@@ -146,8 +142,11 @@
 		});
 	</script>
 
+	<p></p>
+	  <hr style="border:none;height: 1px;background-color:grey;"/>
+	<p></p>   	
 	
-	<p>Example 3.</p>
+	<p>Example 3 (Accordion)</p>
 
 	
 	<style>
@@ -275,7 +274,83 @@
 		})
 	</script>
 
-	
+
+	<p></p>
+	  <hr style="border:none;height: 1px;background-color:grey;"/>
+	<p></p>   
+
+	<p>Example 4 (filter)</p>		
+
+<style>
+#myInput {
+  background-position: 10px 12px; /* Position the search icon */
+  background-repeat: no-repeat; /* Do not repeat the icon image */
+  width: 90%; /* Full-width */
+  font-size: 16px; /* Increase font-size */
+  padding: 12px 20px 12px 40px; /* Add some padding */
+  border: 1px solid #ddd; /* Add a grey border */
+  margin-bottom: 12px; /* Add some space below the input */
+}
+
+#myUL {
+  /* Remove default list styling */
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#myUL li a {
+  border: 1px solid #ddd; /* Add a border to all links */
+  margin-top: -1px; /* Prevent double borders */
+  background-color: #f6f6f6; /* Grey background color */
+  padding: 12px; /* Add some padding */
+  text-decoration: none; /* Remove default text underline */
+  font-size: 18px; /* Increase the font-size */
+  color: black; /* Add a black text color */
+  display: block; /* Make it into a block element to fill the whole list */
+}
+
+#myUL li a:hover:not(.header) {
+  background-color: #eee; /* Add a hover effect to all links, except for headers */
+}  
+</style>  
+
+  <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
+
+    <ul id="myUL">
+      <li><a href="https://gregdodge.github.io">Greg</a></li>
+      <li><a href="https://gregdodge.github.io/tests">Tom</a></li>
+      <li><a href="https://gregdodge.github.io/tests/jsonclick.html">Greg</a></li>
+      <li><a href="https://gregdodge.github.io/tests/bootstrap.html">Ed</a></li>
+      <li><a href="https://gregdodge.github.io/dev">Kris</a></li>
+      <li><a href="https://gregdodge.github.io/slicefinder">Huss</a></li>
+      <li><a href="https://gregdodge.github.io/cordial/index.txt">Matt</a></li>
+    </ul>
+		
+
+<script>
+function myFunction() {
+  // Declare variables
+  var input, filter, ul, li, a, i, txtValue;
+  input = document.getElementById('myInput');
+  filter = input.value.toUpperCase();
+  ul = document.getElementById("myUL");
+  li = ul.getElementsByTagName('li');
+
+  // Loop through all list items, and hide those who don't match the search query
+  for (i = 0; i < li.length; i++) {
+    a = li[i].getElementsByTagName("a")[0];
+    txtValue = a.textContent || a.innerText;
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+      li[i].style.display = "";
+    } else {
+      li[i].style.display = "none";
+    }
+  }
+}
+</script>
+		
+		
 </div>
 </div>  
   
