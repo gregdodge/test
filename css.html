@@ -112,9 +112,48 @@
 <p>&nbsp;</p>
   <hr style="border:none;height: 1px;background-color:grey;"/>  
 
-<p><b>Example 2:</b></p>
+<p><b>Example 2 (Bouncing Buttons):</b></p>
 
-<p>&nbsp;</p>  
+<style>
+/* 1. Base styles for the button */
+.bouncing-btn {
+  display: inline-block; /* Essential for transform to work correctly on all elements */
+  padding: 15px 30px;
+  margin: 35px 15px;
+  font-size: 16px;
+  color: white;
+  font-weight: bold;
+  font-family: verdana;
+  letter-spacing: 1.3px;
+  background-color: #007BFF;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.2s ease; /* Smooth transition when the hover starts/stops */
+}
+/* 2. Apply the animation on hover */
+.bouncing-btn:hover {
+  animation: bounce 1s infinite; /* Animation name, duration, and infinite loop */
+}
+/* 3. Define the keyframe animation */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0); /* Start and end position (at rest) */
+  }
+  50% {
+    transform: translateY(-10px); /* Mid-point position (the "bounce" up) */
+  }
+}
+</style>
+
+
+<a href="http://www.hover.com"><button class="bouncing-btn">Hover</button></a>
+<a href="http://www.hover.com"><button class="bouncing-btn">Hover</button></a>
+<a href="http://www.hover.com"><button class="bouncing-btn">Hover</button></a>
+
+<p>&nbsp;</p>
+  <hr style="border:none;height: 1px;background-color:grey;"/>  
+<p>&nbsp;</p>
   
 </div>
 </div>  
