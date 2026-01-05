@@ -1,0 +1,71 @@
+<html>
+  <head>
+    <title></title>
+
+<style>
+  nav ul {
+  list-style: none; /* Removes bullet points */
+  position: relative; /* Essential for positioning the sub-menu relative to the parent */
+  padding: 0;
+  margin: 0;
+}
+
+nav ul li {
+  display: inline-block; /* Creates a horizontal main menu */
+  position: relative; /* Allows flyout children to be positioned correctly */
+}
+
+nav a {
+  display: block;
+  padding: 10px 15px;
+  text-decoration: none;
+}
+
+/* Hide the flyout menu by default */
+.flyout {
+  display: none;
+  position: absolute;
+  top: 100%; /* Positions the top of the flyout just below the parent */
+  left: 0;
+  /* Additional styling for the flyout box */
+  background-color: #eee;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.5);
+  width: 150px;
+}
+
+/* Show the flyout menu on hover */
+nav ul li:hover > .flyout {
+  display: block;
+}
+
+.flyout li {
+  display: block; /* Makes sub-menu items stack vertically */
+}
+
+</style>    
+  
+  </head>
+ <body>
+
+   <nav>
+  <ul>
+    <li>
+      <a href="#">Home</a>
+    </li>
+    <li>
+      <a href="#">Services</a>
+      <!-- Sub-menu container -->
+      <ul class="flyout">
+        <li><a href="#">Design</a></li>
+        <li><a href="#">Development</a></li>
+        <li><a href="#">Consulting</a></li>
+      </ul>
+    </li>
+    <li><a href="#">About</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+</nav>
+
+   
+ </body> 
+</html>
