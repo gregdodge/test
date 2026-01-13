@@ -71,6 +71,17 @@ $(document).ready(function(){
 	<p>Anything on page</p>
     <input id="myInput" type="text" placeholder="Search..">
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myDIV *").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>	
 	
 	<p></p>
 	  <hr style="border:none;height: 1px;background-color:grey;"/>
