@@ -1,42 +1,45 @@
 <!DOCTYPE html>
 <html>
 <body>
-<h1>HTML Geolocation</h1>
-<p>Click the button to get your coordinates.</p>
 
-<button onclick="getLocation()">Click for pizza near me</button>
-
-<p id="demo"></p>
-
-<script>
-const x = document.getElementById("demo");
-
-function getLocation() {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(success, error);
-  } else { 
-    x.innerHTML = "Geolocation is not supported by this browser.";
-  }
+<script>  
+function getLocationAndCreateLink() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition, showError);
+    } else {
+        document.getElementById("location-link-container").innerHTML = "Geolocation is not supported by this browser.";
+    }
 }
 
-function success(position) {
-  x.innerHTML = "<a href='https://www.google.com/' + position.coords.latitude + ',' + position.coords.longitude;"
+function showPosition(position) {
+    const latitude = position.coords.latitude;
+    const longitude = position.coords.longitude;
+
+    // Construct the Google Maps URL
+    const googleMapsUrl = `https://maps.google.com{latitude},${longitude}`;
+
+    // Create and display the link
+    const linkContainer = document.getElementById("location-link-container");
+    linkContainer.innerHTML = `<a href="${googleMapsUrl}" target="_blank" rel="noopener noreferrer">Click to open your current location on Google Maps</a>`;
 }
 
-/*
-function success(position) {
-  x.innerHTML = "Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude;
-}
-*/
-  
-function error() {
-  alert("Sorry, no position available.");
+function showError(error) {
+    switch(error.code) {
+        case error.PERMISSION_DENIED:
+            document.getElementById("location-link-container").innerHTML = "User denied the request for Geolocation.";
+            break;
+        case error.POSITION_UNAVAILABLE:
+            document.getElementById("location-link-container").innerHTML = "Location information is unavailable.";
+            break;
+        case error.TIMEOUT:
+            document.getElementById("location-link-container").innerHTML = "The request to get user location timed out.";
+            break;
+        case error.UNKNOWN_ERROR:
+            document.getElementById("location-link-container").innerHTML = "An unknown error occurred.";
+            break;
+    }
 }
 </script>
-
-  <div>
-    Link to <a href="https://www.google.com/" onclick="location.href=this.href+Latitude;return false;"> Google</a>
-  </div>
   
 </body>
 </html>
