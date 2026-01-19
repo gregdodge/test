@@ -20,9 +20,15 @@ function getLocation() {
 }
 
 function success(position) {
-  x.innerHTML = "Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude;
+  x.innerHTML = "<a href='https://www.google.com/' + position.coords.latitude + ',' + position.coords.longitude;"
 }
 
+/*
+function success(position) {
+  x.innerHTML = "Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude;
+}
+*/
+  
 function error() {
   alert("Sorry, no position available.");
 }
