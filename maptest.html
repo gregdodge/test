@@ -4,7 +4,7 @@
 <h1>HTML Geolocation</h1>
 <p>Click the button to get your coordinates.</p>
 
-<button onclick="getLocation()">Try It</button>
+<button onclick="getLocation()">Click for pizza near me</button>
 
 <p id="demo"></p>
 
@@ -19,15 +19,27 @@ function getLocation() {
   }
 }
 
+/*  
 function success(position) {
-  x.innerHTML = "Latitude: " + position.coords.latitude + 
-  "<br>Longitude: " + position.coords.longitude;
+  x.innerHTML = "Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude;
 }
+*/
+
+function success(position) {
+  x.innerHTML = 'https://www.google.com/maps/search/pizza+restaurants/@'position.coords.latitude',-'position.coords.longitude',17z/'
+}  
+
 
 function error() {
   alert("Sorry, no position available.");
 }
 </script>
 
+  <div>
+
+<a href="https://www.google.com/maps/search/pizza+restaurants/@'position.coords.latitude',-'position.coords.longitude',17z/"
+  
+  </div>
+  
 </body>
 </html>
